@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [ UserController::class, 'homePage']); 
+Route::get('/contact/page', [ UserController::class, 'ContactPage']); 

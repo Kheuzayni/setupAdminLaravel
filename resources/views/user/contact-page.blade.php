@@ -1,4 +1,4 @@
 @extends('layout/user-layout')
 @section('space-work')
-This new oage for contact
+This new page for contact
 @endsection

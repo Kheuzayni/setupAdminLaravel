@@ -13,4 +13,5 @@ class UserController extends Controller
     public function contactPage (){
         return view("user.contact-page");
     }
+    
 }

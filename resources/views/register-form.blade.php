@@ -63,7 +63,14 @@
                     <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
-                  
+                  <!-- Flash message -->
+                  @if(Session::has('success'))
+                    <div class="alert alert-success/">{{Session::get('Success')}}</div>
+                  @endif
+                  @if(Session::has('error'))
+                    <div class="alert alert-success/">{{Session::get('error')}}</div>
+                  @endif
+
                   <form class="row g-3" action="{{ route('registerUser')}}" method="POST">
                   @csrf
                     <div class="col-12">

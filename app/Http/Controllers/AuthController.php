@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -17,5 +19,18 @@ class AuthController extends Controller
             'username' => 'required',
             'password' => 'required|min:6|max:8|confirmed'
         ]);
+        try {
+            $user = new User;
+            $user -> name = $request->name;
+            $user -> email = $request->email;
+            $user -> username = $request->username;
+            $user -> password = Hash::make($request->username);
+            $user -> save();
+            return redirect('/registration/form')->with('success', 'Great!!! You have successfully registered');
+        } catch (\Exception $e) {
+            //throw $th;
+            return redirect('/registration/form')->with('error', $e->getMessage());
+        }
+        
     }
 }

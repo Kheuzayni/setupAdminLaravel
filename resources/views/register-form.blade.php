@@ -65,6 +65,7 @@
                   </div>
                   
                   <form class="row g-3" action="{{ route('registerUser')}}" method="POST">
+                  @csrf
                     <div class="col-12">
                       <label for="yourName" class="form-label">Your Name</label>
                       <input type="text" name="name" class="form-control">

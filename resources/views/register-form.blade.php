@@ -69,13 +69,13 @@
                     <div class="col-12">
                       <label for="yourName" class="form-label">Your Name</label>
                       <input type="text" name="name" class="form-control">
-                      <span> @error('name') {{$message}} @endError </span>
+                      <span class = "text-danger"> @error('name') {{$message}} @endError </span>
                     </div>
 
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Your Email</label>
                       <input type="email" name="email" class="form-control">
-                      <span> @error('email') {{$message}} @endError </span>
+                      <span class = "text-danger"> @error('email') {{$message}} @endError </span>
                     </div>
 
                     <div class="col-12">
@@ -83,19 +83,19 @@
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                         <input type="text" name="username" class="form-control" >
-                        <span> @error('username') {{$message}} @endError </span>
+                        <span class = "text-danger"> @error('username') {{$message}} @endError </span>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
                       <input type="password" name="password" class="form-control">
-                      <span> @error('password') {{$message}} @endError </span>
+                      <span class = "text-danger"> @error('password') {{$message}} @endError </span>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Confirme Password</label>
                       <input type="password" name="password_confirmation" class="form-control">
-                      <span> @error('password_confirmation') {{$message}} @endError </span>
+                      <span class = "text-danger"> @error('password_confirmation') {{$message}} @endError </span>
                     </div>
 
                     <!-- <div class="col-12">

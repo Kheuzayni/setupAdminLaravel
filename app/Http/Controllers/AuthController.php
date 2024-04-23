@@ -33,4 +33,7 @@ class AuthController extends Controller
         }
         
     }
+    public function loginUser (){
+        return view('login-page');
+    }
 }

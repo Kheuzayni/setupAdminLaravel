@@ -39,8 +39,8 @@ class AuthController extends Controller
     
     public function loginUser (Request $request){
         $request->validate([
-            'username' => 'required|min:6|max:8',
-            'password' => 'required',
+            'username' => 'required',
+            'password' => 'required|min:6|max:8',
         ]);
         
     }

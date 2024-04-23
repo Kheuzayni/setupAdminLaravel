@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Pages / Register - NiceAdmin Bootstrap Template</title>
+  <title>Pages / Login - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-   <!-- Favicons -->
-   <link href="{{ asset('assets/img/favicon.png')}}" rel="icon">
-  <link href="{{ asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -27,7 +27,7 @@
   <link href="{{ asset('assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="{{ asset('assets/css/style.css" rel="stylesheet')}}">
 
   <!-- =======================================================
   * Template Name: NiceAdmin
@@ -60,64 +60,38 @@
                 <div class="card-body">
 
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
-                    <p class="text-center small">Enter your personal details to create account</p>
+                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
+                    <p class="text-center small">Enter your username & password to login</p>
                   </div>
-                  <!-- Flash message -->
-                  @if(Session::has('success'))
-                    <div class="alert alert-success/">{{Session::get('Success')}}</div>
-                  @endif
-                  @if(Session::has('error'))
-                    <div class="alert alert-success/">{{Session::get('error')}}</div>
-                  @endif
 
-                  <form class="row g-3" action="{{ route('registerUser')}}" method="POST">
-                  @csrf
-                    <div class="col-12">
-                      <label for="yourName" class="form-label">Your Name</label>
-                      <input type="text" name="name" class="form-control">
-                      <span class = "text-danger"> @error('name') {{$message}} @endError </span>
-                    </div>
-
-                    <div class="col-12">
-                      <label for="yourEmail" class="form-label">Your Email</label>
-                      <input type="email" name="email" class="form-control">
-                      <span class = "text-danger"> @error('email') {{$message}} @endError </span>
-                    </div>
+                  <form class="row g-3 needs-validation" novalidate>
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" >
-                        <span class = "text-danger"> @error('username') {{$message}} @endError </span>
+                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+                        <div class="invalid-feedback">Please enter your username.</div>
+                      </div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control">
-                      <span class = "text-danger"> @error('password') {{$message}} @endError </span>
+                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Confirme Password</label>
-                      <input type="password" name="password_confirmation" class="form-control">
-                      <span class = "text-danger"> @error('password_confirmation') {{$message}} @endError </span>
-                    </div>
-
-                    <!-- <div class="col-12">
                       <div class="form-check">
-                        <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
-                        <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
-                        <div class="invalid-feedback">You must agree before submitting.</div>
+                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Remember me</label>
                       </div>
-                    </div> -->
-                    <br/>
-                    <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Create Account</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Already have an account? <a href="/login/form">Log in</a></p>
+                      <button class="btn btn-primary w-100" type="submit">Login</button>
+                    </div>
+                    <div class="col-12">
+                      <p class="small mb-0">Don't have account? <a href="/registration/form">Create an account</a></p>
                     </div>
                   </form>
 
@@ -129,7 +103,7 @@
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
               </div>
 
             </div>

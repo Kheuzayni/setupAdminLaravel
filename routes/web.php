@@ -12,4 +12,5 @@ Route::get('/home', [ UserController::class, 'homePage']);
 Route::get('/contact/page', [ UserController::class, 'ContactPage']); 
 Route::get('/registration/form', [ AuthController::class, 'loadRegisterForm']); 
 Route::post('/register/user', [ AuthController::class, 'registerUser']) -> name('registerUser'); 
-Route::get('/login/form', [ AuthController::class, 'loginUser']); 
+Route::get('/login/form', [ AuthController::class, 'loadLoginPage']); 
+Route::post('/login/user', [ AuthController::class, 'LoginUser']) -> name('LoginUser'); 

@@ -64,21 +64,29 @@
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <!-- Flash message -->
+                  @if(Session::has('success'))
+                    <div class="alert alert-success/">{{Session::get('Success')}}</div>
+                  @endif
+                  @if(Session::has('error'))
+                    <div class="alert alert-success/">{{Session::get('error')}}</div>
+                  @endif
 
+                  <form class="row g-3" action= "{{ route('LoginUser') }}" method= "POST" >
+                  @csrf
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                        <input type="text" name="username" class="form-control" >
+                        <span class = "text-danger"> @error('username') {{$message}} @endError </span>                        
                       </div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
+                      <input type="password" name="password" class="form-control" >
+                      <span class = "text-danger"> @error('password') {{$message}} @endError </span>
                     </div>
 
                     <div class="col-12">
@@ -97,15 +105,6 @@
 
                 </div>
               </div>
-
-              <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-              </div>
-
             </div>
           </div>
         </div>

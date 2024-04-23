@@ -33,7 +33,16 @@ class AuthController extends Controller
         }
         
     }
-    public function loginUser (){
+    public function loadLoginPage (){
         return view('login-page');
     }
+    
+    public function loginUser (Request $request){
+        $request->validate([
+            'username' => 'required|min:6|max:8',
+            'password' => 'required',
+        ]);
+        
+    }
+
 }
